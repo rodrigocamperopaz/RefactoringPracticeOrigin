@@ -1,2 +1,2 @@
 # RefactoringPracticeOrigin
-To test coding skills
+ Solution to tests skills.
