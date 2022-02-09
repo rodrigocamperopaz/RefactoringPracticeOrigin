@@ -1,4 +1,5 @@
-﻿using RefactoringExerciseI.Inventory;
+﻿
+using RefactoringExerciseI.Inventory;
 
 namespace RefactoringExerciseI
 {
@@ -36,9 +37,8 @@ namespace RefactoringExerciseI
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new GameInventory(Items);
-
-
+            var app = new Inventory.GameInventory(Items);
+            
             for (int index = 0; index < 31; index++)
             {
                 Console.WriteLine($"-------- day {index} --------");
