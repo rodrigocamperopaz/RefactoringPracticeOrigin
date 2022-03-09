@@ -1,8 +1,4 @@
-﻿
-
-using GameInventory.Games;
-
-namespace RefactoringExerciseI.Inventory
+﻿namespace RefactoringExerciseI.Inventory
 {
     public class GameInventory
     {
@@ -17,13 +13,63 @@ namespace RefactoringExerciseI.Inventory
         {
             for (var index = 0; index < _items.Count; index++)
             {
-                var itemGame = _items[index];
+                if (_items[index].Name != "Aged Brie" && _items[index].Name != "Backstage passes to a Pokemon Gym concert")
+                {
+                    if (_items[index].Quality > 0 && _items[index].Name != "Sulfuras, Hand of Ragnaros")
+                    {
+                        _items[index].Quality--;
+                    }
+                }
+                else
+                {
+                    if (_items[index].Quality < 50)
+                    {
+                        _items[index].Quality++;
 
-                if (!itemGame.IsValid()) continue;
+                        if (_items[index].Name == "Backstage passes to a Pokemon Gym concert")
+                        {
+                            if (_items[index].SellIn < 11 && _items[index].Quality < 50)
+                            {
+                                _items[index].Quality++;
+                            }
 
-                GameCreator gameBase = new(itemGame.Name);
-                gameBase.UpdateQualityAndSell(itemGame);
+                            if (_items[index].SellIn < 6 && _items[index].Quality < 50)
+                            {
+                                _items[index].Quality++;
+                            }
+                        }
+                    }
+                }
 
+                if (_items[index].Name != "Sulfuras, Hand of Ragnaros")
+                {
+                    _items[index].SellIn--;
+                }
+
+                if (_items[index].SellIn < 0)
+                {
+                    if (_items[index].Name != "Aged Brie")
+                    {
+                        if (_items[index].Name != "Backstage passes to a Pokemon Gym concert")
+                        {
+                            if (_items[index].Quality > 0 && _items[index].Name != "Sulfuras, Hand of Ragnaros")
+                            {
+                                _items[index].Quality--;
+                            }
+                        }
+                        else
+                        {
+                            _items[index].Quality = _items[index].Quality - _items[index].Quality;
+                        }
+                    }
+                    else
+                    {
+                        if (_items[index].Quality < 50)
+                        {
+                            _items[index].Quality++;
+                        }
+                    }
+                }
             }
         }
     }
