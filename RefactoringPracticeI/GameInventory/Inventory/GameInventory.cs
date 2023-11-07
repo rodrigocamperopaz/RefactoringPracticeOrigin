@@ -11,7 +11,7 @@
 
         public void UpdateQuality()
         {
-            for (var index = 0; index < _items.Count; index++)
+            for (int index = 0; index < _items.Count; index++)
             {
                 if (_items[index].Name != "Aged Brie" && _items[index].Name != "Backstage passes to a Pokemon Gym concert")
                 {
