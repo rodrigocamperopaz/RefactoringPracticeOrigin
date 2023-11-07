@@ -20,23 +20,20 @@
                         _items[index].Quality--;
                     }
                 }
-                else
+                else if (_items[index].Quality < 50)
                 {
-                    if (_items[index].Quality < 50)
+                    _items[index].Quality++;
+
+                    if (_items[index].Name == "Backstage passes to a Pokemon Gym concert")
                     {
-                        _items[index].Quality++;
-
-                        if (_items[index].Name == "Backstage passes to a Pokemon Gym concert")
+                        if (_items[index].SellIn < 11 && _items[index].Quality < 50)
                         {
-                            if (_items[index].SellIn < 11 && _items[index].Quality < 50)
-                            {
-                                _items[index].Quality++;
-                            }
+                            _items[index].Quality++;
+                        }
 
-                            if (_items[index].SellIn < 6 && _items[index].Quality < 50)
-                            {
-                                _items[index].Quality++;
-                            }
+                        if (_items[index].SellIn < 6 && _items[index].Quality < 50)
+                        {
+                            _items[index].Quality++;
                         }
                     }
                 }
@@ -62,12 +59,9 @@
                             _items[index].Quality = _items[index].Quality - _items[index].Quality;
                         }
                     }
-                    else
+                    else if (_items[index].Quality < 50)
                     {
-                        if (_items[index].Quality < 50)
-                        {
-                            _items[index].Quality++;
-                        }
+                        _items[index].Quality++;
                     }
                 }
             }
