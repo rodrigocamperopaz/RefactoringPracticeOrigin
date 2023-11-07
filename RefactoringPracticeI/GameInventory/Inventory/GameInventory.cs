@@ -56,7 +56,7 @@
                         }
                         else
                         {
-                            _items[index].Quality = _items[index].Quality - _items[index].Quality;
+                            _items[index].Quality = 0;
                         }
                     }
                     else if (_items[index].Quality < 50)
