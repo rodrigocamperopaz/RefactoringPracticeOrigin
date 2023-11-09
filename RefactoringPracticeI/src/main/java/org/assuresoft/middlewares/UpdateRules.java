@@ -3,7 +3,7 @@ package org.assuresoft.middlewares;
 import org.assuresoft.inventory.Item;
 
 public abstract class UpdateRules {
-  private UpdateRules next;
+  public UpdateRules next;
 
   public static UpdateRules link(UpdateRules first, UpdateRules... chain) {
     UpdateRules head = first;
