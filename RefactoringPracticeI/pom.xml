@@ -21,11 +21,6 @@
             <version>5.10.1</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.rzabini</groupId>
-            <artifactId>approvaltests-spock</artifactId>
-            <version>1.0.5</version>
-        </dependency>
     </dependencies>
 
 </project>
