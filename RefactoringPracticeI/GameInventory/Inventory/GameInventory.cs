@@ -1,4 +1,6 @@
-﻿namespace RefactoringExerciseI.Inventory
+﻿using RefactoringExerciseI.Enums;
+
+namespace RefactoringExerciseI.Inventory
 {
     public class GameInventory
     {
@@ -13,9 +15,9 @@
         {
             for (int index = 0; index < _items.Count; index++)
             {
-                if (_items[index].Name != "Aged Brie" && _items[index].Name != "Backstage passes to a Pokemon Gym concert")
+                if (_items[index].Name != ItemNames.AgedBrie && _items[index].Name != ItemNames.BackstagePasses)
                 {
-                    if (_items[index].Quality > 0 && _items[index].Name != "Sulfuras, Hand of Ragnaros")
+                    if (_items[index].Quality > 0 && _items[index].Name != ItemNames.SulfurasHand)
                     {
                         _items[index].Quality--;
                     }
@@ -24,7 +26,7 @@
                 {
                     _items[index].Quality++;
 
-                    if (_items[index].Name == "Backstage passes to a Pokemon Gym concert")
+                    if (_items[index].Name == ItemNames.BackstagePasses)
                     {
                         if (_items[index].SellIn < 11 && _items[index].Quality < 50)
                         {
@@ -38,18 +40,18 @@
                     }
                 }
 
-                if (_items[index].Name != "Sulfuras, Hand of Ragnaros")
+                if (_items[index].Name != ItemNames.SulfurasHand)
                 {
                     _items[index].SellIn--;
                 }
 
                 if (_items[index].SellIn < 0)
                 {
-                    if (_items[index].Name != "Aged Brie")
+                    if (_items[index].Name != ItemNames.AgedBrie)
                     {
-                        if (_items[index].Name != "Backstage passes to a Pokemon Gym concert")
+                        if (_items[index].Name != ItemNames.BackstagePasses)
                         {
-                            if (_items[index].Quality > 0 && _items[index].Name != "Sulfuras, Hand of Ragnaros")
+                            if (_items[index].Quality > 0 && _items[index].Name != ItemNames.SulfurasHand)
                             {
                                 _items[index].Quality--;
                             }
