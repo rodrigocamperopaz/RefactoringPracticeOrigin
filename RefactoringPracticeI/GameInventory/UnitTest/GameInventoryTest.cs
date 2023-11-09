@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using RefactoringExerciseI.Enums;
 using RefactoringExerciseI.Inventory;
 
 namespace RefactoringExerciseI.UnitTest
@@ -6,34 +7,64 @@ namespace RefactoringExerciseI.UnitTest
     [TestFixture]
     public class GameInventoryTest
     {
-        [Test]
-        public void BackstagePasses()
+        private Item ItemProvider(string itemName, int startingSellIn, int startingQuality)
         {
-            // ToDo
+            return new Item {Name = itemName, SellIn = startingSellIn, Quality = startingQuality};
         }
 
         [Test]
-        public void Sulfuras()
+        [TestCase (5, 0, 4, 3)]
+        [TestCase (0, 45, -1, 0)]
+        [TestCase (5, 50, 4, 50)]
+        [TestCase (8, 0, 7, 2)]
+        public void BackstagePasses(int startingSellIn, int startingQuality, int expectedSellIn, int expectedQuality)
         {
-            // ToDo
+            IList<Item> Items = new List<Item>
+            {
+                ItemProvider(ItemNames.BackstagePasses, startingSellIn, startingQuality)
+            };
+            GameInventory inventory = new(Items);
+            inventory.UpdateQuality();
+
+            Assert.That(Items[0].Name, Is.EqualTo(ItemNames.BackstagePasses));
+            Assert.That(Items[0].Quality, Is.EqualTo(expectedQuality));
+            Assert.That(Items[0].SellIn, Is.EqualTo(expectedSellIn));
         }
 
         [Test]
-        public void AgedBrie()
+        [TestCase (0, 0, 0, 0)]
+        [TestCase (5, 50, 5, 50)]
+        [TestCase (-1, 40, -1, 40)]
+        public void Sulfuras(int startingSellIn, int startingQuality, int expectedSellIn, int expectedQuality)
         {
-            // ToDo
+            IList<Item> Items = new List<Item>
+            {
+                ItemProvider(ItemNames.SulfurasHand, startingSellIn, startingQuality)
+            };
+            GameInventory inventory = new(Items);
+            inventory.UpdateQuality();
+
+            Assert.That(Items[0].Name, Is.EqualTo(ItemNames.SulfurasHand));
+            Assert.That(Items[0].Quality, Is.EqualTo(expectedQuality));
+            Assert.That(Items[0].SellIn, Is.EqualTo(expectedSellIn));
         }
 
         [Test]
-        public void Foo()
+        [TestCase (0, 0, -1, 2)]
+        [TestCase (5, 50, 4, 50)]
+        [TestCase (-1, 40, -2, 42)]
+        public void AgedBrie(int startingSellIn, int startingQuality, int expectedSellIn, int expectedQuality)
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            GameInventory app = new(Items);
-            app.UpdateQuality();
+            IList<Item> Items = new List<Item>
+            {
+                ItemProvider(ItemNames.AgedBrie, startingSellIn, startingQuality)
+            };
+            GameInventory inventory = new(Items);
+            inventory.UpdateQuality();
 
-            Assert.That(Items[0].Name, Is.EqualTo("bar"));
-            Assert.That(Items[0].Quality, Is.EqualTo(5));
-            Assert.That(Items[0].SellIn, Is.EqualTo(0));
+            Assert.That(Items[0].Name, Is.EqualTo(ItemNames.AgedBrie));
+            Assert.That(Items[0].Quality, Is.EqualTo(expectedQuality));
+            Assert.That(Items[0].SellIn, Is.EqualTo(expectedSellIn));
         }
     }
 }
