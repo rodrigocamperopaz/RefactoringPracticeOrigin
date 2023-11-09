@@ -10,7 +10,12 @@ public class ItemBuilder implements Builder {
   public ItemBuilder() {
   }
 
-  public static ItemBuilder name(String name) {
+  public static ItemBuilder builder() {
+    return new ItemBuilder();
+  }
+
+  @Override
+  public ItemBuilder name(String name) {
     ItemBuilder itemBuilder = new ItemBuilder();
     ItemBuilder.name = name;
 
