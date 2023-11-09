@@ -2,7 +2,7 @@ package org.assuresoft.inventory;
 
 import org.assuresoft.builder.Builder;
 
-public class Item {
+public class Item implements Builder {
   private String name;
   private int sellIn;
   private int quality;
@@ -28,24 +28,25 @@ public class Item {
     return quality;
   }
 
+  @Override
   public void setName(String name) {
     this.name = name;
   }
 
+  @Override
   public void setSellIn(int sellIn) {
     this.sellIn = sellIn;
   }
 
+  @Override
   public void setQuality(int quality) {
     this.quality = quality;
   }
 
   @Override
   public String toString() {
-    return "Item{" +
-        "name='" + name + '\'' +
-        ", sellIn=" + sellIn +
-        ", quality=" + quality +
-        "}\n";
+    return "name= '" + name + '\'' +
+        ", sellIn= " + sellIn +
+        ", quality= " + quality;
   }
 }

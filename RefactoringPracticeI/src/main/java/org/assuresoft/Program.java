@@ -23,12 +23,12 @@ public class Program {
 
     GameInventory app = new GameInventory(items);
 
-    for (int index = 0; index < 31; index++) {
+    for (int index = 0; index < 31; index += 1) {
       System.out.println("-------- day " + index + " --------");
       for (Item item : items) {
         System.out.println(item);
       }
-      System.out.println("");
+      System.out.println();
       app.updateQuality();
     }
   }
