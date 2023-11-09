@@ -1,76 +1,29 @@
-﻿namespace RefactoringExerciseI.Inventory
+﻿using ApprovalUtilities.Utilities;
+
+namespace RefactoringExerciseI.Inventory
 {
     public class GameInventory
     {
         private readonly IList<Item> _items;
+        private readonly IHandlerItem _handler;
 
-        public GameInventory(IList<Item> Items)
+        public GameInventory(IList<Item> Items, IHandlerItem Handler)
         {
             _items = Items;
+            _handler = Handler;
         }
 
         public void UpdateQuality()
         {
-            for (var index = 0; index < _items.Count; index++)
-            {
-                if (_items[index].Name != "Aged Brie" && _items[index].Name != "Backstage passes to a Pokemon Gym concert")
-                {
-                    if (_items[index].Quality > 0 && _items[index].Name != "Sulfuras, Hand of Ragnaros")
-                    {
-                        _items[index].Quality--;
-                    }
-                }
-                else
-                {
-                    if (_items[index].Quality < 50)
-                    {
-                        _items[index].Quality++;
+            _items.ForEach(item => UpdateItemQuality(item));
+        }
 
-                        if (_items[index].Name == "Backstage passes to a Pokemon Gym concert")
-                        {
-                            if (_items[index].SellIn < 11 && _items[index].Quality < 50)
-                            {
-                                _items[index].Quality++;
-                            }
+        private void UpdateItemQuality(Item item)
+        {
+            if (item == null)
+                return;
 
-                            if (_items[index].SellIn < 6 && _items[index].Quality < 50)
-                            {
-                                _items[index].Quality++;
-                            }
-                        }
-                    }
-                }
-
-                if (_items[index].Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    _items[index].SellIn--;
-                }
-
-                if (_items[index].SellIn < 0)
-                {
-                    if (_items[index].Name != "Aged Brie")
-                    {
-                        if (_items[index].Name != "Backstage passes to a Pokemon Gym concert")
-                        {
-                            if (_items[index].Quality > 0 && _items[index].Name != "Sulfuras, Hand of Ragnaros")
-                            {
-                                _items[index].Quality--;
-                            }
-                        }
-                        else
-                        {
-                            _items[index].Quality = _items[index].Quality - _items[index].Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (_items[index].Quality < 50)
-                        {
-                            _items[index].Quality++;
-                        }
-                    }
-                }
-            }
+            _handler.UpdateQuality(item);
         }
     }
 }
