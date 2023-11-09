@@ -1,9 +1,6 @@
 package org.assuresoft.inventory;
 
-import org.assuresoft.middlewares.AgedBrieUpdateRule;
-import org.assuresoft.middlewares.BackstagePassesUpdateRule;
-import org.assuresoft.middlewares.DefaultUpdateRule;
-import org.assuresoft.middlewares.UpdateRules;
+import org.assuresoft.middlewares.*;
 
 import java.util.List;
 

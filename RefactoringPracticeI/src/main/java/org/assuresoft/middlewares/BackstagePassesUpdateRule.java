@@ -10,14 +10,20 @@ public class BackstagePassesUpdateRule extends UpdateRules {
     if (BACKSTAGE_PASSES.equals(item.getName())) {
       if (item.getQuality() < 50) {
         item.setQuality(item.getQuality() + 1);
-        if (item.getSellIn() < 11 && item.getQuality() < 50) {
-          item.setQuality(item.getQuality() + 1);
-        }
-        if (item.getSellIn() < 6 && item.getQuality() < 50) {
-          item.setQuality(item.getQuality() + 1);
+
+        if (item.getQuality() < 50) {
+          if ((item.getSellIn() < 11)) {
+            item.setQuality(item.getQuality() + 1);
+          }
+
+          if (item.getSellIn() < 6) {
+            item.setQuality(item.getQuality() + 1);
+          }
         }
       }
+
       item.setSellIn(item.getSellIn() - 1);
+
       if (item.getSellIn() < 0) {
         item.setQuality(0);
       }

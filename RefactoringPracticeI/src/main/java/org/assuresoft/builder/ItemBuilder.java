@@ -4,22 +4,28 @@ import org.assuresoft.inventory.Item;
 
 public class ItemBuilder implements Builder {
   private String name;
-  private int sellIn;
-  private int quality;
+  private int sellIn = 0;
+  private int quality = 0;
 
   @Override
-  public void setName(String name) {
+  public ItemBuilder setName(String name) {
     this.name = name;
+
+    return this;
   }
 
   @Override
-  public void setSellIn(int sellIn) {
+  public ItemBuilder setSellIn(int sellIn) {
     this.sellIn = sellIn;
+
+    return this;
   }
 
   @Override
-  public void setQuality(int quality) {
+  public ItemBuilder setQuality(int quality) {
     this.quality = quality;
+
+    return this;
   }
 
   public Item build() {
