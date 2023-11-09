@@ -1,7 +1,5 @@
 package org.assuresoft.inventory;
 
-import org.assuresoft.builder.Builder;
-
 public class Item {
   private String name;
   private int sellIn;

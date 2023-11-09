@@ -1,4 +1,4 @@
-package approval;
+package org.assuresoft.approval;
 
 import org.assuresoft.Program;
 import org.assuresoft.utils.TestConstants;

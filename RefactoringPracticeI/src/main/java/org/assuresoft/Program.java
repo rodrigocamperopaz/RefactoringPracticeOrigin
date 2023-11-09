@@ -34,19 +34,17 @@ public class Program {
   }
 
   private static void setup() {
-    final ItemBuilder itemBuilder = new ItemBuilder();
-
     items = new ArrayList<>();
-    items.add(itemBuilder.setName("+5 Dexterity Vest").setSellIn(10).setQuality(20).build());
-    items.add(itemBuilder.setName(AGED_BRIE).setSellIn(2).setQuality(0).build());
-    items.add(itemBuilder.setName("Elixir of the Mongoose").setSellIn(5).setQuality(7).build());
-    items.add(itemBuilder.setName(SULFURAS).setSellIn(0).setQuality(80).build());
-    items.add(itemBuilder.setName(SULFURAS).setSellIn(-1).setQuality(80).build());
-    items.add(itemBuilder.setName(BACKSTAGE_PASSES).setSellIn(15).setQuality(20).build());
-    items.add(itemBuilder.setName(BACKSTAGE_PASSES).setSellIn(10).setQuality(49).build());
-    items.add(itemBuilder.setName(BACKSTAGE_PASSES).setSellIn(5).setQuality(49).build());
-    items.add(itemBuilder.setName("Conjured Mana Cake").setSellIn(3).setQuality(6).build());
 
+    items.add(ItemBuilder.name("+5 Dexterity Vest").sellIn(10).quality(20).build());
+    items.add(ItemBuilder.name(AGED_BRIE).sellIn(2).quality(0).build());
+    items.add(ItemBuilder.name("Elixir of the Mongoose").sellIn(5).quality(7).build());
+    items.add(ItemBuilder.name(SULFURAS).sellIn(0).quality(80).build());
+    items.add(ItemBuilder.name(SULFURAS).sellIn(-1).quality(80).build());
+    items.add(ItemBuilder.name(BACKSTAGE_PASSES).sellIn(15).quality(20).build());
+    items.add(ItemBuilder.name(BACKSTAGE_PASSES).sellIn(10).quality(49).build());
+    items.add(ItemBuilder.name(BACKSTAGE_PASSES).sellIn(5).quality(49).build());
+    items.add(ItemBuilder.name("Conjured Mana Cake").sellIn(3).quality(6).build());
 
     app = new GameInventory(items);
   }
