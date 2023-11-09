@@ -15,55 +15,56 @@ namespace RefactoringExerciseI.Inventory
         {
             for (int index = 0; index < _items.Count; index++)
             {
-                if (_items[index].Name != ItemNames.AgedBrie && _items[index].Name != ItemNames.BackstagePasses)
+                Item currentItem = _items[index];
+                if (currentItem.Name != ItemNames.AgedBrie && currentItem.Name != ItemNames.BackstagePasses)
                 {
-                    if (_items[index].Quality > 0 && _items[index].Name != ItemNames.SulfurasHand)
+                    if (currentItem.Quality > 0 && currentItem.Name != ItemNames.SulfurasHand)
                     {
-                        _items[index].Quality--;
+                        currentItem.Quality--;
                     }
                 }
-                else if (_items[index].Quality < 50)
+                else if (currentItem.Quality < 50)
                 {
-                    _items[index].Quality++;
+                    currentItem.Quality++;
 
-                    if (_items[index].Name == ItemNames.BackstagePasses)
+                    if (currentItem.Name == ItemNames.BackstagePasses)
                     {
-                        if (_items[index].SellIn < 11 && _items[index].Quality < 50)
+                        if (currentItem.SellIn < 11 && currentItem.Quality < 50)
                         {
-                            _items[index].Quality++;
+                            currentItem.Quality++;
                         }
 
-                        if (_items[index].SellIn < 6 && _items[index].Quality < 50)
+                        if (currentItem.SellIn < 6 && currentItem.Quality < 50)
                         {
-                            _items[index].Quality++;
+                            currentItem.Quality++;
                         }
                     }
                 }
 
-                if (_items[index].Name != ItemNames.SulfurasHand)
+                if (currentItem.Name != ItemNames.SulfurasHand)
                 {
-                    _items[index].SellIn--;
+                    currentItem.SellIn--;
                 }
 
-                if (_items[index].SellIn < 0)
+                if (currentItem.SellIn < 0)
                 {
-                    if (_items[index].Name != ItemNames.AgedBrie)
+                    if (currentItem.Name != ItemNames.AgedBrie)
                     {
-                        if (_items[index].Name != ItemNames.BackstagePasses)
+                        if (currentItem.Name != ItemNames.BackstagePasses)
                         {
-                            if (_items[index].Quality > 0 && _items[index].Name != ItemNames.SulfurasHand)
+                            if (currentItem.Quality > 0 && currentItem.Name != ItemNames.SulfurasHand)
                             {
-                                _items[index].Quality--;
+                                currentItem.Quality--;
                             }
                         }
                         else
                         {
-                            _items[index].Quality = 0;
+                            currentItem.Quality = 0;
                         }
                     }
-                    else if (_items[index].Quality < 50)
+                    else if (currentItem.Quality < 50)
                     {
-                        _items[index].Quality++;
+                        currentItem.Quality++;
                     }
                 }
             }
