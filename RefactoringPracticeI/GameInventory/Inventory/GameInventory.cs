@@ -11,20 +11,19 @@
 
         public void UpdateQuality()
         {
-            for (var index = 0; index < _items.Count; index++)
+            foreach (Item item in _items)
             {
                 Item result;
-                Item item = _items[index];
 
-                result = _items[index].Name switch
+                result = item.Name switch
                 {
                     "Aged Brie" => new AgedBrie(item).Update(),
                     "Backstage passes to a Pokemon Gym concert" => new BackstagePokemon(item).Update(),
-                    "Sulfuras, Hand of Ragnaros" => _items[index],
+                    "Sulfuras, Hand of Ragnaros" => item,
                     _ => new Default(item).Update(),
                 };
-                _items[index].Quality = result.Quality;
-                _items[index].SellIn = result.SellIn;
+                item.Quality = result.Quality;
+                item.SellIn = result.SellIn;
             }
         }
 
