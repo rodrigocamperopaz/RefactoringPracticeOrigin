@@ -1,5 +1,6 @@
 package org.assuresoft.middlewares;
 
+import org.assuresoft.builder.ItemBuilder;
 import org.assuresoft.inventory.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,11 @@ public class DefaultUpdateRuleTest {
 
   @Test
   void testUpdateQualityForNormalItem() {
-    Item item = new Item("Default item", 5, 10);
+    Item item = ItemBuilder.builder()
+        .name("Default item")
+        .sellIn(5)
+        .quality(10)
+        .build();
     updateRule.updateQuality(item);
 
     assertEquals(9, item.getQuality());
@@ -25,7 +30,11 @@ public class DefaultUpdateRuleTest {
 
   @Test
   void testUpdateQualityForSulfuras() {
-    Item item = new Item("Sulfuras, Hand of Ragnaros", 5, 10);
+    Item item = ItemBuilder.builder()
+        .name("Sulfuras, Hand of Ragnaros")
+        .sellIn(5)
+        .quality(10)
+        .build();
     updateRule.updateQuality(item);
 
     assertEquals(10, item.getQuality());
@@ -34,7 +43,11 @@ public class DefaultUpdateRuleTest {
 
   @Test
   void testUpdateQualityForExpiredItem() {
-    Item item = new Item("Expired Item", -1, 10);
+    Item item = ItemBuilder.builder()
+        .name("Expired Item")
+        .sellIn(-1)
+        .quality(10)
+        .build();
     updateRule.updateQuality(item);
 
     assertEquals(8, item.getQuality());

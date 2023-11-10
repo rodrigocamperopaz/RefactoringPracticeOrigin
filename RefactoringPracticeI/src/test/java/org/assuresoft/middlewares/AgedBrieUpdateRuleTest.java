@@ -1,5 +1,6 @@
 package org.assuresoft.middlewares;
 
+import org.assuresoft.builder.ItemBuilder;
 import org.assuresoft.inventory.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,7 +47,11 @@ public class AgedBrieUpdateRuleTest {
 
   @Test
   void testUpdateQualityForAgedBrie() {
-    Item item = new Item("Aged Brie", 5, 40);
+    Item item = ItemBuilder.builder()
+        .name("Aged Brie")
+        .sellIn(5)
+        .quality(40)
+        .build();
     agedBrieUpdateRule.updateQuality(item);
 
     assertEquals(41, item.getQuality());
@@ -55,7 +60,11 @@ public class AgedBrieUpdateRuleTest {
 
   @Test
   void testUpdateQualityForExpiredAgedBrie() {
-    Item item = new Item("Aged Brie", -1, 40);
+    Item item = ItemBuilder.builder()
+        .name("Aged Brie")
+        .sellIn(-1)
+        .quality(40)
+        .build();
     agedBrieUpdateRule.updateQuality(item);
 
     assertEquals(42, item.getQuality());

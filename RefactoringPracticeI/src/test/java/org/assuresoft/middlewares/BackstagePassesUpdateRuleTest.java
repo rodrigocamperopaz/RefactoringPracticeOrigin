@@ -1,5 +1,6 @@
 package org.assuresoft.middlewares;
 
+import org.assuresoft.builder.ItemBuilder;
 import org.assuresoft.inventory.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,7 +47,11 @@ public class BackstagePassesUpdateRuleTest {
 
   @Test
   void testUpdateQualityForBackstagePasses() {
-    Item item = new Item(NAME, 15, 30);
+    Item item = ItemBuilder.builder()
+        .name(NAME)
+        .sellIn(15)
+        .quality(30)
+        .build();
     backstagePassesUpdateRule.updateQuality(item);
 
     assertEquals(31, item.getQuality());
@@ -55,7 +60,11 @@ public class BackstagePassesUpdateRuleTest {
 
   @Test
   void testUpdateQualityForBackstagePassesCloseToFirstLimit() {
-    Item item = new Item(NAME, 10, 30);
+    Item item = ItemBuilder.builder()
+        .name(NAME)
+        .sellIn(10)
+        .quality(30)
+        .build();
     backstagePassesUpdateRule.updateQuality(item);
 
     assertEquals(32, item.getQuality());
@@ -64,7 +73,11 @@ public class BackstagePassesUpdateRuleTest {
 
   @Test
   void testUpdateQualityForBackstagePassesCloseToSecondLimit() {
-    Item item = new Item(NAME, 5, 30);
+    Item item = ItemBuilder.builder()
+        .name(NAME)
+        .sellIn(5)
+        .quality(30)
+        .build();
     backstagePassesUpdateRule.updateQuality(item);
 
     assertEquals(33, item.getQuality());
@@ -73,7 +86,11 @@ public class BackstagePassesUpdateRuleTest {
 
   @Test
   void testUpdateQualityForExpiredBackstagePasses() {
-    Item item = new Item(NAME, -1, 30);
+    Item item = ItemBuilder.builder()
+        .name(NAME)
+        .sellIn(-1)
+        .quality(30)
+        .build();
     backstagePassesUpdateRule.updateQuality(item);
 
     assertEquals(0, item.getQuality());
