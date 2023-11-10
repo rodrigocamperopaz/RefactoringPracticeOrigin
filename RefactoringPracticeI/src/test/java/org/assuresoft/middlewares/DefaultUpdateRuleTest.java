@@ -22,7 +22,7 @@ public class DefaultUpdateRuleTest {
         .sellIn(5)
         .quality(10)
         .build();
-    updateRule.updateQuality(item);
+    updateRule.updateItem(item);
 
     assertEquals(9, item.getQuality());
     assertEquals(4, item.getSellIn());
@@ -35,7 +35,7 @@ public class DefaultUpdateRuleTest {
         .sellIn(5)
         .quality(10)
         .build();
-    updateRule.updateQuality(item);
+    updateRule.updateItem(item);
 
     assertEquals(10, item.getQuality());
     assertEquals(5, item.getSellIn());
@@ -48,7 +48,7 @@ public class DefaultUpdateRuleTest {
         .sellIn(-1)
         .quality(10)
         .build();
-    updateRule.updateQuality(item);
+    updateRule.updateItem(item);
 
     assertEquals(8, item.getQuality());
     assertEquals(-2, item.getSellIn());

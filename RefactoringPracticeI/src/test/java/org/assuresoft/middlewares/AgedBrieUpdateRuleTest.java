@@ -52,7 +52,7 @@ public class AgedBrieUpdateRuleTest {
         .sellIn(5)
         .quality(40)
         .build();
-    agedBrieUpdateRule.updateQuality(item);
+    agedBrieUpdateRule.updateItem(item);
 
     assertEquals(41, item.getQuality());
     assertEquals(4, item.getSellIn());
@@ -65,7 +65,7 @@ public class AgedBrieUpdateRuleTest {
         .sellIn(-1)
         .quality(40)
         .build();
-    agedBrieUpdateRule.updateQuality(item);
+    agedBrieUpdateRule.updateItem(item);
 
     assertEquals(42, item.getQuality());
     assertEquals(-2, item.getSellIn());

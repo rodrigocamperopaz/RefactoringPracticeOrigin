@@ -52,7 +52,7 @@ public class BackstagePassesUpdateRuleTest {
         .sellIn(15)
         .quality(30)
         .build();
-    backstagePassesUpdateRule.updateQuality(item);
+    backstagePassesUpdateRule.updateItem(item);
 
     assertEquals(31, item.getQuality());
     assertEquals(14, item.getSellIn());
@@ -65,7 +65,7 @@ public class BackstagePassesUpdateRuleTest {
         .sellIn(10)
         .quality(30)
         .build();
-    backstagePassesUpdateRule.updateQuality(item);
+    backstagePassesUpdateRule.updateItem(item);
 
     assertEquals(32, item.getQuality());
     assertEquals(9, item.getSellIn());
@@ -78,7 +78,7 @@ public class BackstagePassesUpdateRuleTest {
         .sellIn(5)
         .quality(30)
         .build();
-    backstagePassesUpdateRule.updateQuality(item);
+    backstagePassesUpdateRule.updateItem(item);
 
     assertEquals(33, item.getQuality());
     assertEquals(4, item.getSellIn());
@@ -91,7 +91,7 @@ public class BackstagePassesUpdateRuleTest {
         .sellIn(-1)
         .quality(30)
         .build();
-    backstagePassesUpdateRule.updateQuality(item);
+    backstagePassesUpdateRule.updateItem(item);
 
     assertEquals(0, item.getQuality());
     assertEquals(-2, item.getSellIn());

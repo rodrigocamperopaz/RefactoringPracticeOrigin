@@ -28,7 +28,7 @@ public class AgedBrieUpdateRule extends UpdateRules {
   }
 
   @Override
-  public void updateQuality(Item item) {
+  public void updateItem(Item item) {
     if (AGED_BRIE.equals(item.getName())) {
       if (item.getQuality() < limitQuality) {
         item.setQuality(item.getQuality() + 1);

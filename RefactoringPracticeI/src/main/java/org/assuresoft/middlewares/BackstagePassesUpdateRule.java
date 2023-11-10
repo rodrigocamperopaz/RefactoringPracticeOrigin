@@ -28,7 +28,7 @@ public class BackstagePassesUpdateRule extends UpdateRules {
   }
 
   @Override
-  public void updateQuality(Item item) {
+  public void updateItem(Item item) {
     int firstLimitGetSellIn = 11;
     int secondLimitGetSellIn = 6;
 

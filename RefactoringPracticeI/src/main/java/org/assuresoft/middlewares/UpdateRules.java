@@ -33,7 +33,7 @@ public abstract class UpdateRules {
    *
    * @param item The item to update.
    */
-  public abstract void updateQuality(Item item);
+  public abstract void updateItem(Item item);
 
   /**
    * Checks and passes the item to the next middleware in the chain if it exists.
@@ -45,6 +45,6 @@ public abstract class UpdateRules {
       return;
     }
 
-    next.updateQuality(item);
+    next.updateItem(item);
   }
 }

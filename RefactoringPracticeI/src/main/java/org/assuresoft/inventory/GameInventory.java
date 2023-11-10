@@ -25,7 +25,7 @@ public class GameInventory {
    */
   public void updateQuality() {
     for (Item item : items) {
-      this.updateRules.updateQuality(item);
+      this.updateRules.updateItem(item);
     }
   }
 

@@ -12,7 +12,7 @@ import static org.assuresoft.utils.Constants.SULFURAS;
  */
 public class DefaultUpdateRule extends UpdateRules {
   @Override
-  public void updateQuality(Item item) {
+  public void updateItem(Item item) {
     if (!AGED_BRIE.equals(item.getName()) && !BACKSTAGE_PASSES.equals(item.getName())) {
       if (!SULFURAS.equals(item.getName())) {
         if (item.getQuality() > 0) {
