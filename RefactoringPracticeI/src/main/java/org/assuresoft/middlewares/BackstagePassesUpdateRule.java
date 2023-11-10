@@ -5,18 +5,38 @@ import org.assuresoft.inventory.Item;
 import static org.assuresoft.utils.Constants.BACKSTAGE_PASSES;
 
 public class BackstagePassesUpdateRule extends UpdateRules {
+  private int limitQuality = 50;
+
+  public BackstagePassesUpdateRule() {
+  }
+
+  public BackstagePassesUpdateRule(int limitQuality) {
+    this.limitQuality = limitQuality;
+  }
+
+  public int getLimitQuality() {
+    return limitQuality;
+  }
+
+  public void setLimitQuality(int limitQuality) {
+    this.limitQuality = limitQuality;
+  }
+
   @Override
   public void updateQuality(Item item) {
+    int firstLimitGetSellIn = 11;
+    int secondLimitGetSellIn = 6;
+
     if (BACKSTAGE_PASSES.equals(item.getName())) {
-      if (item.getQuality() < 50) {
+      if (item.getQuality() < limitQuality) {
         item.setQuality(item.getQuality() + 1);
 
-        if (item.getQuality() < 50) {
-          if ((item.getSellIn() < 11)) {
+        if (item.getQuality() < limitQuality) {
+          if ((item.getSellIn() < firstLimitGetSellIn)) {
             item.setQuality(item.getQuality() + 1);
           }
 
-          if (item.getSellIn() < 6) {
+          if (item.getSellIn() < secondLimitGetSellIn) {
             item.setQuality(item.getQuality() + 1);
           }
         }
