@@ -3,9 +3,9 @@ namespace RefactoringExerciseI.Inventory
 {
     public interface Visitor
     {
-        public void VisitEpicItem(EpicItem epicItem);
-        public void VisitLegendaryItem(LegendaryItem legendaryItem);
-        public void VisitRareItem(RareItem rareItem);
-        public void VisitCommonItem(CommonItem commonItem);
+        public void VisitAgedBrie(Item agedBrieItem);
+        public void VisitSulfuras(Item sulfurasItem);
+        public void VisitBackstagePasses(Item backstagePassesItem);
+        public void VisitCommonItem(Item commonItem);
     }
 }

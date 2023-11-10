@@ -1,10 +1,10 @@
 ﻿namespace RefactoringExerciseI.Inventory
 {
-    public class RareItem : Item
+    public class BackstagePassesItem : Item
     {
         public override void AcceptDayVisitor(Visitor visitor)
         {
-            visitor.VisitRareItem(this);
+            visitor.VisitBackstagePasses(this);
         }
     }
 }

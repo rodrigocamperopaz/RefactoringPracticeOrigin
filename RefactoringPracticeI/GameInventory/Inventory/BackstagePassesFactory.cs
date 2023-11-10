@@ -1,12 +1,11 @@
 ﻿
-
 namespace RefactoringExerciseI.Inventory
 {
-    public class CommonItemFactory : ItemFactory
+    public class BackstagePassesFactory : ItemFactory
     {
         public Item CreateItem(string Name, int SellIn, int Quality)
         {
-            return new CommonItem { Name = Name, SellIn = SellIn, Quality = Quality };
+            return new BackstagePassesItem { Name = Name, SellIn = SellIn, Quality = Quality };
         }
     }
 }
