@@ -1,4 +1,6 @@
-﻿using RefactoringExerciseI.Inventory;
+﻿using System;
+using System.Collections.Generic;
+using RefactoringExerciseI.Inventory;
 
 namespace RefactoringExerciseI
 {
@@ -9,32 +11,22 @@ namespace RefactoringExerciseI
         {
             Console.WriteLine("Here we are!");
 
-            IList<Item> Items = new List<Item>{
-                new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-                new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
-                new Item {Name = "Sulfuras, Hand of sRagnaros", SellIn = -1, Quality = 80},
-                new Item
-                {
-                    Name = "Backstage passes to a Pokemon Gym concert",
-                    SellIn = 15,
-                    Quality = 20
-                },
-                new Item
-                {
-                    Name = "Backstage passes to a Pokemon Gym concert",
-                    SellIn = 10,
-                    Quality = 49
-                },
-                new Item
-                {
-                    Name = "Backstage passes to a Pokemon Gym concert",
-                    SellIn = 5,
-                    Quality = 49
-                },
-				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
-            };
+            ItemFactory legendaryItemFactory = new LegendatyItemFactory();
+            ItemFactory epicItemFactory = new EpicItemFactory();
+            ItemFactory rareItemFactory = new RareItemFactory();
+            ItemFactory commonItemFactory = new CommonItemFactory();
+
+            IList<Item> Items = new List<Item>();
+
+            Items.Add(commonItemFactory.CreateItem("+5 Dexterity Vest", 10, 20));
+            Items.Add(commonItemFactory.CreateItem("Aged Brie", 2, 0));
+            Items.Add(commonItemFactory.CreateItem("Elixir of the Mongoose", 5, 7));
+            Items.Add(legendaryItemFactory.CreateItem("Sulfuras, Hand of Ragnaros", 0, 80));
+            Items.Add(commonItemFactory.CreateItem("Sulfuras, Hand of sRagnaros", -1, 80));
+            Items.Add(rareItemFactory.CreateItem("Backstage passes to a Pokemon Gym concert", 15, 20));
+            Items.Add(rareItemFactory.CreateItem("Backstage passes to a Pokemon Gym concert", 10, 49));
+            Items.Add(rareItemFactory.CreateItem("Backstage passes to a Pokemon Gym concert", 5, 49));
+            Items.Add(epicItemFactory.CreateItem("Conjured Mana Cake", 3, 6));
 
             var app = new GameInventory(Items);
 
@@ -50,6 +42,9 @@ namespace RefactoringExerciseI
                 Console.WriteLine("");
                 app.UpdateQuality();
             }
+
+            Console.WriteLine("Press a key to exit...");
+            Console.ReadLine();
         }
     }
 }
