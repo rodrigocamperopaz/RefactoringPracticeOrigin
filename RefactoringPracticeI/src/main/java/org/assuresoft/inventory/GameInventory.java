@@ -4,6 +4,9 @@ import org.assuresoft.middlewares.*;
 
 import java.util.List;
 
+/**
+ * Class representing the game inventory with a list of items and update rules.
+ */
 public class GameInventory {
   private final List<Item> items;
   private UpdateRules updateRules;
@@ -17,6 +20,9 @@ public class GameInventory {
     );
   }
 
+  /**
+   * Updates the quality of all items in the game inventory based on the current update rules.
+   */
   public void updateQuality() {
     for (Item item : items) {
       this.updateRules.updateQuality(item);

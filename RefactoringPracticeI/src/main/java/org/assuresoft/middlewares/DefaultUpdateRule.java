@@ -5,6 +5,11 @@ import static org.assuresoft.utils.Constants.AGED_BRIE;
 import static org.assuresoft.utils.Constants.BACKSTAGE_PASSES;
 import static org.assuresoft.utils.Constants.SULFURAS;
 
+/**
+ * Concrete class implementing default update rules for item quality, extends from {@link UpdateRules}.
+ *
+ * @author Jose Lozada
+ */
 public class DefaultUpdateRule extends UpdateRules {
   @Override
   public void updateQuality(Item item) {

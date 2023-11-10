@@ -1,5 +1,8 @@
 package org.assuresoft.inventory;
 
+/**
+ * Class representing an item with a name, sell-in value, and quality.
+ */
 public class Item {
   private String name;
   private int sellIn;

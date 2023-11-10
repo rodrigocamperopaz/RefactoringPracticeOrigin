@@ -4,6 +4,11 @@ import org.assuresoft.inventory.Item;
 
 import static org.assuresoft.utils.Constants.BACKSTAGE_PASSES;
 
+/**
+ * Concrete class implementing update rules for Backstage Passes item quality, extends from {@link UpdateRules}.
+ *
+ * @author Jose Lozada
+ */
 public class BackstagePassesUpdateRule extends UpdateRules {
   private int limitQuality = 50;
 

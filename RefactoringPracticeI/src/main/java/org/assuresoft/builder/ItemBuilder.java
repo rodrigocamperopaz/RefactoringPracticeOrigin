@@ -2,6 +2,12 @@ package org.assuresoft.builder;
 
 import org.assuresoft.inventory.Item;
 
+/**
+ * Builder class for constructing Item objects using the Builder pattern,
+ * implements the {@link Builder} interface.
+ *
+ * @author Jose Lozada
+ */
 public class ItemBuilder implements Builder {
   private static String name;
   private static int sellIn = 0;
@@ -10,6 +16,11 @@ public class ItemBuilder implements Builder {
   public ItemBuilder() {
   }
 
+  /**
+   * Static method to create a new instance of ItemBuilder.
+   *
+   * @return A new instance of ItemBuilder.
+   */
   public static ItemBuilder builder() {
     return new ItemBuilder();
   }
@@ -36,6 +47,11 @@ public class ItemBuilder implements Builder {
     return this;
   }
 
+  /**
+   * Builds and returns the final Item object.
+   *
+   * @return The constructed Item object.
+   */
   public Item build() {
     return new Item(name, sellIn, quality);
   }

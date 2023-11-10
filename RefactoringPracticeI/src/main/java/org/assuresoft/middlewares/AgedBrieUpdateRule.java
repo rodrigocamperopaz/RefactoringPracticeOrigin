@@ -4,6 +4,11 @@ import org.assuresoft.inventory.Item;
 
 import static org.assuresoft.utils.Constants.AGED_BRIE;
 
+/**
+ * Concrete class implementing update rules for Aged Brie item quality, extends from {@link UpdateRules}.
+ *
+ * @author Jose Lozada
+ */
 public class AgedBrieUpdateRule extends UpdateRules {
   private int limitQuality = 50;
 
