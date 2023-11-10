@@ -9,11 +9,11 @@ import java.util.List;
  */
 public class GameInventory {
   private final List<Item> items;
-  private UpdateRules updateRules;
+  private UpdateRules rules;
 
   public GameInventory(List<Item> items) {
     this.items = items;
-    this.updateRules = UpdateRules.link(
+    this.rules = UpdateRules.link(
         new AgedBrieUpdateRule(),
         new BackstagePassesUpdateRule(),
         new DefaultUpdateRule()
@@ -23,13 +23,13 @@ public class GameInventory {
   /**
    * Updates the quality of all items in the game inventory based on the current update rules.
    */
-  public void updateQuality() {
+  public void updateItems() {
     for (Item item : items) {
-      this.updateRules.updateItem(item);
+      this.rules.updateItem(item);
     }
   }
 
-  public void setUpdateRules(UpdateRules updateRules) {
-    this.updateRules = updateRules;
+  public void setRules(UpdateRules rules) {
+    this.rules = rules;
   }
 }

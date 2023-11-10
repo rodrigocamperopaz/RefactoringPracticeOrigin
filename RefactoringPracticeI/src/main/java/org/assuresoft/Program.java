@@ -29,7 +29,7 @@ public class Program {
       }
 
       System.out.println();
-      app.updateQuality();
+      app.updateItems();
     }
   }
 

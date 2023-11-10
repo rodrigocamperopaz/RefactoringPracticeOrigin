@@ -24,7 +24,7 @@ public class GameInventoryTest {
   @Test
   public void testUpdateQuality() {
     app = new GameInventory(items);
-    app.updateQuality();
+    app.updateItems();
 
     assertEquals(ITEM_NAME, items.get(0).getName());
     assertEquals(0, items.get(0).getQuality());
@@ -35,8 +35,8 @@ public class GameInventoryTest {
   public void testChangeUpdateRules() {
     app = new GameInventory(items);
     UpdateRules updateRules = UpdateRules.link(new AgedBrieUpdateRule());
-    app.setUpdateRules(updateRules);
-    app.updateQuality();
+    app.setRules(updateRules);
+    app.updateItems();
 
     assertEquals(ITEM_NAME, items.get(0).getName());
     assertEquals(0, items.get(0).getQuality());
