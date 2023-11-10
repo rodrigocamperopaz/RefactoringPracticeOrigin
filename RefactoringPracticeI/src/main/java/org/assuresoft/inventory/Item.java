@@ -43,8 +43,8 @@ public class Item {
 
   @Override
   public String toString() {
-    return "name= '" + name + '\'' +
-        ", sellIn= " + sellIn +
-        ", quality= " + quality;
+    String output = "name= '%s', sellIn= %d, quality= %d";
+    
+    return String.format(output, this.name, this.sellIn, this.quality);
   }
 }

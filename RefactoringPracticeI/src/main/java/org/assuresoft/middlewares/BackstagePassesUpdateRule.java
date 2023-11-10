@@ -10,21 +10,21 @@ import static org.assuresoft.utils.Constants.BACKSTAGE_PASSES;
  * @author Jose Lozada
  */
 public class BackstagePassesUpdateRule extends UpdateRules {
-  private int limitQuality = 50;
+  private int defaultLimitQuality = 50;
 
   public BackstagePassesUpdateRule() {
   }
 
   public BackstagePassesUpdateRule(int limitQuality) {
-    this.limitQuality = limitQuality;
+    this.defaultLimitQuality = limitQuality;
   }
 
   public int getLimitQuality() {
-    return limitQuality;
+    return this.defaultLimitQuality;
   }
 
   public void setLimitQuality(int limitQuality) {
-    this.limitQuality = limitQuality;
+    this.defaultLimitQuality = limitQuality;
   }
 
   @Override
@@ -33,10 +33,10 @@ public class BackstagePassesUpdateRule extends UpdateRules {
     int secondLimitGetSellIn = 6;
 
     if (BACKSTAGE_PASSES.equals(item.getName())) {
-      if (item.getQuality() < limitQuality) {
+      if (item.getQuality() < this.defaultLimitQuality) {
         item.setQuality(item.getQuality() + 1);
 
-        if (item.getQuality() < limitQuality) {
+        if (item.getQuality() < this.defaultLimitQuality) {
           if ((item.getSellIn() < firstLimitGetSellIn)) {
             item.setQuality(item.getQuality() + 1);
           }

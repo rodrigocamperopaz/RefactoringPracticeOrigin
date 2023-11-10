@@ -18,7 +18,7 @@ public class AgedBrieUpdateRuleTest {
 
   @Test
   void testDefaultConstructor() {
-    assertEquals(50, agedBrieUpdateRule.getLimitQuality());
+    assertEquals(50, agedBrieUpdateRule.getDefaultLimitQuality());
   }
 
   @Test
@@ -26,23 +26,23 @@ public class AgedBrieUpdateRuleTest {
     int limitQuality = 40;
     AgedBrieUpdateRule customRule = new AgedBrieUpdateRule(limitQuality);
 
-    assertEquals(limitQuality, customRule.getLimitQuality());
+    assertEquals(limitQuality, customRule.getDefaultLimitQuality());
   }
 
   @Test
   void testGetLimitQuality() {
     int limitQuality = 45;
-    agedBrieUpdateRule.setLimitQuality(limitQuality);
+    agedBrieUpdateRule.setDefaultLimitQuality(limitQuality);
 
-    assertEquals(limitQuality, agedBrieUpdateRule.getLimitQuality());
+    assertEquals(limitQuality, agedBrieUpdateRule.getDefaultLimitQuality());
   }
 
   @Test
   void testSetLimitQuality() {
     int limitQuality = 30;
-    agedBrieUpdateRule.setLimitQuality(limitQuality);
+    agedBrieUpdateRule.setDefaultLimitQuality(limitQuality);
 
-    assertEquals(limitQuality, agedBrieUpdateRule.getLimitQuality());
+    assertEquals(limitQuality, agedBrieUpdateRule.getDefaultLimitQuality());
   }
 
   @Test
